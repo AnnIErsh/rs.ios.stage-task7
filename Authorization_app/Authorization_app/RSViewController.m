@@ -23,20 +23,19 @@
     [self textConfiguration];
     [self loginConfiguration];
     [self passwordConfiguration];
+    [self authorizeComfigurationNormal];
 }
 
 - (void)textConfiguration {
     self.text.text = @"RSSchool";
-    //self.text.textAlignment = NSTextAlignmentCenter;
+    self.text.textAlignment = NSTextAlignmentCenter;
     [self.text setFont:[UIFont boldSystemFontOfSize:36]];
     [self.text setTextColor:[UIColor blackColor]];
     [self.text setBackgroundColor:[UIColor whiteColor]];
-    self.text.frame = CGRectMake(self.view.frame.size.width - self.text.frame.size.width - 101, 80, self.text.frame.size.width, self.text.frame.size.height);
 }
 
 - (void)loginConfiguration {
     self.login.placeholder = @"Login";
-    self.login.frame = CGRectMake(36, self.text.frame.size.height + 80, 303, self.login.frame.size.height);
     UIColor *color = [UIColor colorWithRed:0.3 green:0.36 blue:0.41 alpha:1.0];
     self.login.layer.borderColor = color.CGColor;
     self.login.layer.borderWidth = 1.5;
@@ -47,12 +46,31 @@
 
 - (void)passwordConfiguration {
     self.password.placeholder = @"Password";
-    self.password.frame = CGRectMake(self.login.frame.origin.x, self.login.frame.origin.y + self.login.frame.size.height + 30, 303, self.password.frame.size.height);
     UIColor *color = [UIColor colorWithRed:0.3 green:0.36 blue:0.41 alpha:1.0];
     self.password.layer.borderColor = color.CGColor;
     self.password.layer.borderWidth = 1.5;
     self.password.layer.cornerRadius = 5;
 }
 
+-(void)authorizeComfigurationNormal {
+    UIColor *color = [UIColor colorWithRed: 0.50 green: 0.64 blue: 0.93 alpha: 1.00];
+    [self.authorize setTitle: @"Authorize" forState:UIControlStateNormal];
+    self.authorize.titleLabel.font = [UIFont systemFontOfSize:20 weight:UIFontWeightSemibold];
+    [self.authorize setTitleColor:color forState:UIControlStateNormal];
+    self.authorize.backgroundColor = [UIColor clearColor];
+    self.authorize.layer.borderColor = color.CGColor;
+    self.authorize.layer.borderWidth = 2;
+    self.authorize.layer.cornerRadius = 10;
+    UIImage *image = [UIImage new];
+    if (@available(iOS 13.0, *)) {
+        image = [UIImage systemImageNamed:@"person" withConfiguration:[UIImageSymbolConfiguration configurationWithFont:[UIFont systemFontOfSize:13 weight:UIFontWeightSemibold]]];
+    } else {
+        image = [UIImage imageNamed:@"person.png"];
+    }
+    self.authorize.tintColor = color;
+    [self.authorize setImage:image forState:UIControlStateNormal];
+    self.authorize.imageEdgeInsets = UIEdgeInsetsMake(10, 0, 10, 0);
+    self.authorize.titleEdgeInsets = UIEdgeInsetsMake(10, 5, 10, 0);
+}
 
 @end
