@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E7261E8B268E6103003629D0 /* Data.m in Sources */ = {isa = PBXBuildFile; fileRef = E7261E8A268E6103003629D0 /* Data.m */; };
+		E7A087F8268FB3F100267B2A /* RSViewController+KeyboardHandling.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A087F7268FB3F100267B2A /* RSViewController+KeyboardHandling.m */; };
 		E7D47C13268E50DB008C54C8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E7D47C12268E50DB008C54C8 /* AppDelegate.m */; };
 		E7D47C1E268E50DE008C54C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7D47C1D268E50DE008C54C8 /* Assets.xcassets */; };
 		E7D47C21268E50DE008C54C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7D47C1F268E50DE008C54C8 /* LaunchScreen.storyboard */; };
@@ -19,6 +20,8 @@
 /* Begin PBXFileReference section */
 		E7261E89268E6103003629D0 /* Data.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Data.h; sourceTree = "<group>"; };
 		E7261E8A268E6103003629D0 /* Data.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Data.m; sourceTree = "<group>"; };
+		E7A087F6268FB3F100267B2A /* RSViewController+KeyboardHandling.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RSViewController+KeyboardHandling.h"; sourceTree = "<group>"; };
+		E7A087F7268FB3F100267B2A /* RSViewController+KeyboardHandling.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "RSViewController+KeyboardHandling.m"; sourceTree = "<group>"; };
 		E7D47C0E268E50DB008C54C8 /* Authorization_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Authorization_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7D47C11268E50DB008C54C8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E7D47C12268E50DB008C54C8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -67,6 +70,8 @@
 				E7261E8A268E6103003629D0 /* Data.m */,
 				E7D47C2A268E51A5008C54C8 /* RSViewController.h */,
 				E7D47C2B268E51A5008C54C8 /* RSViewController.m */,
+				E7A087F6268FB3F100267B2A /* RSViewController+KeyboardHandling.h */,
+				E7A087F7268FB3F100267B2A /* RSViewController+KeyboardHandling.m */,
 				E7D47C2C268E51A5008C54C8 /* RSViewController.xib */,
 				E7D47C1D268E50DE008C54C8 /* Assets.xcassets */,
 				E7D47C1F268E50DE008C54C8 /* LaunchScreen.storyboard */,
@@ -147,6 +152,7 @@
 			files = (
 				E7D47C13268E50DB008C54C8 /* AppDelegate.m in Sources */,
 				E7D47C24268E50DE008C54C8 /* main.m in Sources */,
+				E7A087F8268FB3F100267B2A /* RSViewController+KeyboardHandling.m in Sources */,
 				E7D47C2D268E51A5008C54C8 /* RSViewController.m in Sources */,
 				E7261E8B268E6103003629D0 /* Data.m in Sources */,
 			);
