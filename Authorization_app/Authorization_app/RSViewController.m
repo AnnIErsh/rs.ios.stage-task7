@@ -258,7 +258,6 @@
             [label addGestureRecognizer:tap];
         }
     }
-    
 }
 
 - (void)authorizeComfigurationDisable {
@@ -359,6 +358,5 @@
     [textField resignFirstResponder];
     return YES;
 }
-
 
 @end
