@@ -20,12 +20,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *secondView;
 @property (weak, nonatomic) IBOutlet UILabel *thirdView;
 @property (weak, nonatomic) IBOutlet UILabel *resultView;
-
-enum SecureState {
-    Default,
-    Error,
-    Success,
-};
 @end
 
 @implementation RSViewController
@@ -101,14 +95,14 @@ enum SecureState {
     self.authorize.userInteractionEnabled = YES;
     UIImage *image = [UIImage new];
     if (@available(iOS 13.0, *))
-        image = [UIImage systemImageNamed:@"person" withConfiguration:[UIImageSymbolConfiguration configurationWithFont:[UIFont systemFontOfSize:13 weight:UIFontWeightBold]]];
+        image = [UIImage systemImageNamed:@"person" withConfiguration:[UIImageSymbolConfiguration configurationWithFont:[UIFont systemFontOfSize:14 weight:UIFontWeightSemibold]]];
     else
-        image = [UIImage imageNamed:@"person.png"];
+        image = [UIImage imageNamed:@"user.png"];
     self.authorize.tintColor = color;
     [self.authorize setImage:image forState:UIControlStateNormal];
     [self.authorize setImage:image forState:UIControlStateDisabled];
-    self.authorize.imageEdgeInsets = UIEdgeInsetsMake(10, 0, 10, 0);
-    self.authorize.titleEdgeInsets = UIEdgeInsetsMake(10, 5, 10, 0);
+    self.authorize.imageEdgeInsets = UIEdgeInsetsMake(10, -10, 10, -5);
+    self.authorize.titleEdgeInsets = UIEdgeInsetsMake(10, -5, 10, -10);
     [self.authorize addTarget:self action: @selector(didTapOnButton:) forControlEvents:UIControlEventTouchUpInside];
     [self.authorize addTarget:self action: @selector(didHighlight) forControlEvents:UIControlEventTouchDown];
 }
@@ -119,7 +113,7 @@ enum SecureState {
     self.resultView.textAlignment = NSTextAlignmentCenter;
     self.resultView.backgroundColor = [UIColor clearColor];
     self.resultView.textColor = [UIColor blackColor];
-    self.resultView.font = [UIFont systemFontOfSize:18 weight:UIFontWeightBold];
+    self.resultView.font = [UIFont systemFontOfSize:18 weight:UIFontWeightSemibold];
 }
 
 - (void)roundViewConfiguration {
@@ -165,6 +159,7 @@ enum SecureState {
         NSLog(@"Refreshed");
         [self defaultState];
     }];
+    alert.view.tintColor = [UIColor redColor];
     [alert addAction:refresh];
     [self presentViewController:alert animated:YES completion:nil];
 }
@@ -184,6 +179,14 @@ enum SecureState {
                 [self presentRefresh];
                 return ;
             }
+            else
+            {
+                self.resultView.text = @"_";
+                self.secureContainerView.layer.borderWidth = 2;
+                self.secureContainerView.layer.borderColor = [UIColor colorWithRed:0.76 green:0.00 blue:0.08 alpha:1.00].CGColor;
+                self.secureContainerView.layer.cornerRadius = 10;
+                return ;
+            }
         }
     }
 }
@@ -192,9 +195,13 @@ enum SecureState {
     if ([self.resultView.text isEqualToString:@"_"])
         self.resultView.text = @"";
     NSMutableString *res = self.resultView.text.mutableCopy;
+    if (res.length > 0 && res.length < 4)
+    {
+        [res appendString:@" "];
+    }
     [res appendString: label.text];
     self.resultView.text = res;
-    if (self.resultView.text.length == 3)
+    if (self.resultView.text.length == 5)
     {
         [self checkProcess];
     }
@@ -203,6 +210,7 @@ enum SecureState {
 - (void)tapOnRound:(UIGestureRecognizer *)sender {
     if (sender.state == UIGestureRecognizerStateBegan)
     {
+        self.secureContainerView.layer.borderColor = [UIColor clearColor].CGColor;
         for (UILabel *label in self.secureContainerView.subviews)
         {
             if (label.tag != 1)
@@ -287,24 +295,14 @@ enum SecureState {
     sender.text = @"";
     UIColor *colorRight = [UIColor colorWithRed:0.3 green:0.36 blue:0.41 alpha:1.0];
     sender.layer.borderColor = colorRight.CGColor;
-    //NSLog(@"tapping");
 }
 
 - (void)keyboardWillHide:(id)sender {
     NSLog(@"KeyBoard Close");
-    for (id i in self.view.subviews)
-    {
-        if ([i isMemberOfClass:[UITextField class]])
-            [self cleanPlaceholders:i];
-    }
 }
 
 - (void)addDelegates:(UITextField *)sender {
     sender.delegate = self;
-}
-
-- (void)cleanPlaceholders:(UITextField*)sender {
-    //sender.text = @"";
 }
 
 - (void)didTapAnywhere:(UITapGestureRecognizer *)sender {
@@ -345,7 +343,7 @@ enum SecureState {
         if (@available(iOS 13.0, *))
             imageFill = [UIImage systemImageNamed:@"person.fill" withConfiguration:[UIImageSymbolConfiguration configurationWithFont:[UIFont systemFontOfSize:13 weight:UIFontWeightBold]]];
         else
-            imageFill = [UIImage imageNamed:@"person_fill.png"];
+            imageFill = [UIImage imageNamed:@"user-filled.png"];
         [self.authorize setImage:imageFill forState:UIControlStateHighlighted];
     }
     else

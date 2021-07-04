@@ -1,11 +1,12 @@
 {
   "images" : [
     {
-      "filename" : "person_fill.png",
+      "filename" : "user-filled.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "user-filled2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

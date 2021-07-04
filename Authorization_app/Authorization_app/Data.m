@@ -18,7 +18,7 @@
 }
 
 - (NSString *)numbers {
-    return @"132";
+    return @"1 3 2";
 }
 
 @end
