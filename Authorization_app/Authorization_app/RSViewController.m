@@ -9,7 +9,7 @@
 #import "RSViewController+KeyboardHandling.h"
 #import "Data.h"
 
-@interface RSViewController () <UITextFieldDelegate, UITextViewDelegate>
+@interface RSViewController () <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *text;
 @property (weak, nonatomic) IBOutlet UITextField *login;
@@ -292,6 +292,7 @@
 }
 
 - (void)tappingBegin:(UITextField *)sender {
+    [sender becomeFirstResponder];
     sender.text = @"";
     UIColor *colorRight = [UIColor colorWithRed:0.3 green:0.36 blue:0.41 alpha:1.0];
     sender.layer.borderColor = colorRight.CGColor;
