@@ -17,4 +17,8 @@
     return @"password";
 }
 
+- (NSString *)numbers {
+    return @"132";
+}
+
 @end

@@ -11,7 +11,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface RSViewController : UIViewController
 @property (nonatomic) UITapGestureRecognizer *tapRecognizer;
-@property (nonatomic) UITouch *authorizeTouch;
 - (void)keyboardWillHide:(id)sender;
 - (void)didTapAnywhere:(UITapGestureRecognizer *)sender;
 - (void)didTapOnButton:(UITapGestureRecognizer *)sender;
